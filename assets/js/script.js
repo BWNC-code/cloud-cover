@@ -3,7 +3,7 @@ const locationInput = document.querySelector('#location');
 const locationName = document.querySelector('#location-name');
 const forecastImage = document.querySelector('#forecast-image');
 const fourDayForecast = document.querySelector('#day-forecast');
-
+const errorMessage = document.querySelector("#error-message");
 
 
 //Get current weather for a given location
@@ -15,8 +15,7 @@ async function getCurrentWeather(lat, lon) {
         forecastImage.src = `https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}.png`;
         forecastImage.alt = currentWeatherData.weather[0].description;
         console.log(currentWeatherData);
-    }
-    catch(error) {
+    } catch (error) {
         console.error(error);
     }
 }
@@ -27,10 +26,12 @@ async function getLatLon(location) {
     try {
         let latLon = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${apiKey}`);
         let latLonData = await latLon.json();
-        console.log(latLonData);
+        if(!latLonData || !latLonData.lat || !latLonData.lon) {
+            throw new Error(`Invalid location: ${location}`);
+        }
         return {
-            lat: latLonData[0].lat,
-            lon: latLonData[0].lon,
+            lat: latLonData.lat,
+            lon: latLonData.lon
         };
     } catch (error) {
         console.error(error);
