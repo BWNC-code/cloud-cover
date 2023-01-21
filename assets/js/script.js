@@ -25,10 +25,14 @@ async function getCurrentWeather(lat, lon) {
 async function getLatLon(location) {
     try {
         let latLon = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${apiKey}`);
-        let latLonData = await latLon.json();
-        if(!latLonData || !latLonData.lat || !latLonData.lon) {
+        if (latLon.status === 404 || latLon.status === 400) {
             throw new Error(`Invalid location: ${location}`);
         }
+        const latLonData = await latLon.json();
+        if (!latLonData || !latLonData.lat || !latLonData.lon) {
+            throw new Error(`Invalid location: ${location}`);
+        }
+        console.log(latLonData);
         return {
             lat: latLonData.lat,
             lon: latLonData.lon
@@ -37,6 +41,8 @@ async function getLatLon(location) {
         console.error(error);
     }
 }
+
+
 
 
 //Function to listen for form submit and run weather update
