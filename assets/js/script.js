@@ -23,4 +23,19 @@ async function getCurrentWeather(lat, lon) {
 
 //Need function to get lat and lon from form input and run getCurrentWeather
 
+async function getLatLon(location) {
+    try {
+        let latLon = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${apiKey}`);
+        let latLonData = await latLon.json();
+        console.log(latLonData);
+        return {
+            lat: latLonData[0].lat,
+            lon: latLonData[0].lon,
+        };
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
 //Function to listen for form submit and run weather update
