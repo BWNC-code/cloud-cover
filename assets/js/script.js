@@ -20,7 +20,6 @@ async function getCurrentWeather(lat, lon) {
     }
 }
 
-//Need function to get lat and lon from form input and run getCurrentWeather
 
 async function getLatLon(location) {
     try {
@@ -28,21 +27,30 @@ async function getLatLon(location) {
         if (latLon.status === 404 || latLon.status === 400) {
             throw new Error(`Error code: ${latLon.status}`);
         }
-        const latLonData = await latLon.json();
-        if (!latLonData || !latLonData[0].lat || !latLonData[0].lon) {
+        let latLonData = await latLon.json();
+        if(!latLonData || !latLonData[0].lat || !latLonData[0].lon) {
             throw new Error(`Invalid location: ${location}`);
         }
-        console.log(latLonData);
         return {
-            lat: latLonData.lat,
-            lon: latLonData.lon
+            lat: latLonData[0].lat,
+            lon: latLonData[0].lon
         };
     } catch (error) {
         console.error(error);
     }
 }
 
-
+/**
+ * Takes location name and gets coordinates, then uses coordinated to get current weather
+ */
+async function displayWeather(location) {
+    try {
+      const coordinates = await getLatLon(location);
+      await getCurrentWeather(coordinates.lat, coordinates.lon);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
 
 //Function to listen for form submit and run weather update
