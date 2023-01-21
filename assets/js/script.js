@@ -26,10 +26,10 @@ async function getLatLon(location) {
     try {
         let latLon = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${apiKey}`);
         if (latLon.status === 404 || latLon.status === 400) {
-            throw new Error(`Invalid location: ${location}`);
+            throw new Error(`Error code: ${latLon.status}`);
         }
         const latLonData = await latLon.json();
-        if (!latLonData || !latLonData.lat || !latLonData.lon) {
+        if (!latLonData || !latLonData[0].lat || !latLonData[0].lon) {
             throw new Error(`Invalid location: ${location}`);
         }
         console.log(latLonData);
