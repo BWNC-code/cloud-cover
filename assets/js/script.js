@@ -1,31 +1,17 @@
 const apiKey = 'd5ef31a7c6df783ea28c65895fc0c6d9';
-const location = "London";
+const locationInput = document.querySelector('#location');
+const locationName = document.querySelector('#location-name');
+const forecastImage = document.querySelector('#forecast-image');
+const fourDayForecast = document.querySelector('#day-forecast');
 
-//Get location data from name
-async function getCoordinates() {
+//Get current weather for a given location
+async function getCurrentWeather(lat, lon) {
     try {
-      const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}`);
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error(error);
+        let currentWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+        let currentWeatherData = await currentWeather.json();
+        locationName.textContent = currentWeatherData.name;
     }
-  }
-
- //Get current weather for a given location
-
-function getWeather(location) {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=london&appid=${apiKey}`)
-.then(response => {
-  console.log(response);
-})
-.catch(err => {
-  console.error(err);
-});
+    catch(error) {
+        console.error(error);
+    }
 }
-
-// Listen for form submission
-document.querySelector('form').addEventListener('submit', event => {
-    event.preventDefault();
-    getWeather();
-})
