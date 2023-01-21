@@ -13,6 +13,7 @@ async function getCurrentWeather(lat, lon) {
         let currentWeatherData = await currentWeather.json();
         locationName.textContent = currentWeatherData.name;
         forecastImage.src = `https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}.png`;
+        forecastImage.alt = currentWeatherData.weather[0].description;
         console.log(currentWeatherData);
     }
     catch(error) {
