@@ -51,6 +51,7 @@ h1 {
     position: relative;
     display: flex;
     min-width: 100px;
+    max-width: 400px;
     align-items: center;
     justify-content: center;
     margin: 10px auto;
@@ -61,6 +62,7 @@ h1 {
     background-color: transparent;
     font-family: inherit;
     font-size: 1.5em;
+    margin: 0 auto;
     padding: 0;
     cursor: pointer;
     display: inline-flex;
@@ -88,7 +90,7 @@ h1 {
   .search-buttons button:focus {
     outline-style: solid;
     outline-color: transparent;
-    box-shadow: 0 0 0 4px rgb(26, 26, 26);
+    box-shadow: 0 0 0 1px rgb(26, 26, 26);
   }
 
   
