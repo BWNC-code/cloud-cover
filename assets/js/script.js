@@ -63,3 +63,8 @@ async function displayWeather(location) {
 
 
 //Function to listen for form submit and run weather update
+
+document.querySelector('form').addEventListener('submit', event => {
+    event.preventDefault();
+    displayWeather(locationInput.value);
+});
