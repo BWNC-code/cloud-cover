@@ -5,15 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap" rel="stylesheet">
+
     <title>Cloud Cover</title>
 </head>
 <body>
     <h1>Cloud Cover</h1>
     <form>
-      <label for="location">Enter Location:</label>
-      <input type="text" id="location" name="location">
-      <button type="submit">Search</button>
-      <button id="geolocate">Use My Location</button>
+      <div id="search-bar">
+        <input type="text" id="location" name="location" placeholder="Enter your location">
+      </div>
+      <div id="search=buttons">
+        <button type="submit">Search</button>
+        <button id="geolocate">Use My Location</button>
+    </div>
     </form>
     <div id="location-name"></div>
     <img id="forecast-image" src="" alt="Weather Forecast">
