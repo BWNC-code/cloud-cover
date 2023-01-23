@@ -6,7 +6,12 @@ const fourDayForecast = document.querySelector('#day-forecast');
 const errorMessage = document.querySelector("#error-message");
 
 
-//Get current weather for a given location
+/**
+ * @param {*} lat 
+ * @param {*} lon 
+ * @returns Display current weather data
+ */
+
 async function getCurrentWeather(lat, lon) {
     try {
         let currentWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`);
@@ -20,6 +25,10 @@ async function getCurrentWeather(lat, lon) {
     }
 }
 
+/**
+ * @param {*} location 
+ * @returns latitude and longitude
+ */
 
 async function getLatLon(location) {
     try {
