@@ -4,6 +4,7 @@ const locationName = document.querySelector('#location-name');
 const forecastImage = document.querySelector('#forecast-image');
 const fourDayForecast = document.querySelector('#day-forecast');
 const errorMessage = document.querySelector("#error-message");
+const geolocateBtn = document.querySelector('#geolocate');
 
 
 /**
@@ -49,8 +50,9 @@ async function getLatLon(location) {
     }
 }
 
+
 /**
- * Takes location name and gets coordinates, then uses coordinated to get current weather
+ * Takes location name and gets coordinates, then uses coordinates to get current weather
  */
 async function displayWeather(location) {
     try {
@@ -68,3 +70,14 @@ document.querySelector('form').addEventListener('submit', event => {
     event.preventDefault();
     displayWeather(locationInput.value);
 });
+
+//Function to listen for "Use my location button press and use browser geolocation api to run displayWeather"
+
+geolocateBtn.addEventListener('click', async () => {
+    navigator.geolocation.getCurrentPosition(async position => {
+        console.log(position)
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        await getCurrentWeather(lat, lon);
+    });
+})
