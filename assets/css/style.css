@@ -14,18 +14,17 @@ h1 {
     text-align: center;
     margin: 1em auto;
     font-size: 3em;
-
 }
 
 /* Style the location search bar */
 
-#search-bar {
+.search-bar {
     position: relative;
     display: flex;
     min-width: 100px;
 }
 
-#search-bar input {
+.search-bar input {
     border: 1px solid grey;
     border-radius: 5px;
     height: 30px;
@@ -36,6 +35,9 @@ h1 {
     text-align: center;
     font-size: 1.5em;
 }
+
+/*Style the location search button*/
+
 
 /* Style the location name */
 #location-name {
