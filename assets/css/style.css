@@ -16,8 +16,11 @@ body {
 h1 {
     text-align: center;
     margin: 1em auto;
-    font-size: 3em;
-    color: 	#31255a;
+    font-size: 4rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 10px;
 }
 
 /* Style the location search bar */
