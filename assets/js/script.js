@@ -79,10 +79,12 @@ let forecastArray = [];
 
 function getForecastData(forecastList) {
     let date;
+    //only take 1 object per day at midday
     forecastList = forecastList.filter(forecast => {
         let date = new Date(forecast.dt * 1000);
         return date.getUTCHours() === 12;
       });
+    
     forecastList.forEach(forecast => {
         if (forecast.weather !== null && forecast.main !== null) {
             date = new Date(forecast.dt * 1000);
@@ -93,12 +95,14 @@ function getForecastData(forecastList) {
     for (let i = 0; i < 4; i++) {
         let forecast = forecastArray[i];
         let date = new Date(forecast.dt*1000);
+        let options = { weekday: 'short' };
+        let day = date.toLocaleDateString('en-US', options);
         let forecastDay = document.getElementById(`forecastDay${i+1}`);
         let forecastImage = document.getElementById(`forecastImage${i+1}`);
         let forecastTemp = document.getElementById(`forecastTemp${i+1}`);
         let forecastWeather = document.getElementById(`forecastWeather${i+1}`);
         let forecastWindSpeed = document.getElementById(`forecastWindSpeed${i+1}`);
-        forecastDay.textContent = `${date.toLocaleDateString()}`;
+        forecastDay.textContent = `${day} ${date.toLocaleDateString()}`;
         forecastImage.src = `https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`;
         forecastImage.alt = forecast.weather[0].description;
         forecastTemp.textContent = `Temperature: ${forecast.main.temp} °C`;
