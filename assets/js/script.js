@@ -21,7 +21,7 @@ async function getCurrentWeather(lat, lon) {
     try {
         let currentWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
         let currentWeatherData = await currentWeather.json();
-        locationName.textContent = currentWeatherData.name;
+        locationName.textContent = `${currentWeatherData.name}, ${currentWeatherData.sys.country}`;
         forecastImage.src = `https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}.png`;
         forecastImage.alt = currentWeatherData.weather[0].description;
         temperature.textContent = `Temperature: ${currentWeatherData.main.temp} °C`;
