@@ -119,6 +119,7 @@ async function displayWeather(location) {
     try {
         const coordinates = await getLatLon(location);
         await getCurrentWeather(coordinates.lat, coordinates.lon);
+        await get4DayForecast(coordinates.lat, coordinates.lon);
     } catch (error) {
         console.error(error);
     }
@@ -139,5 +140,6 @@ geolocateBtn.addEventListener('click', async () => {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
         await getCurrentWeather(lat, lon);
+        await get4DayForecast(lat, lon);
     });
 })
