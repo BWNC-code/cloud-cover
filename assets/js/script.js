@@ -18,7 +18,7 @@ const geolocateBtn = document.querySelector('#geolocate');
 
 async function getCurrentWeather(lat, lon) {
     try {
-        let currentWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+        let currentWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
         let currentWeatherData = await currentWeather.json();
         locationName.textContent = currentWeatherData.name;
         forecastImage.src = `https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}.png`;
@@ -58,6 +58,17 @@ async function getLatLon(location) {
     }
 }
 
+//4 day forecast function
+
+async function get4DayForecast(lat, lon) {
+    try {
+        let forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+        let forecastData = await forecast.json();
+        console.log(forecastData);
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 /**
  * Takes location name and gets coordinates, then uses coordinates to get current weather
