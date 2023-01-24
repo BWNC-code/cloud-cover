@@ -8,6 +8,7 @@ const windSpeed = document.querySelector(`#wind-speed`);
 const fourDayForecast = document.querySelector('#day-forecast');
 const errorMessage = document.querySelector("#error-message");
 const geolocateBtn = document.querySelector('#geolocate');
+const locationSubmitBtn = document.querySelector(`#location-submit`)
 
 
 /**
@@ -130,7 +131,9 @@ async function displayWeather(location) {
 
 document.querySelector('form').addEventListener('submit', event => {
     event.preventDefault();
+    if (event.target === locationSubmitBtn) {
     displayWeather(locationInput.value);
+    }
 });
 
 //Function to listen for "Use my location button press and use browser geolocation api to run displayWeather"
