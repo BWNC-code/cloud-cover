@@ -60,33 +60,53 @@ async function getLatLon(location) {
 
 //4 day forecast function
 
+//fetch data
 async function get4DayForecast(lat, lon) {
     try {
         let forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
         let forecastData = await forecast.json();
-        console.log(forecastData);
         let forecastList = forecastData.list;
-        let forecastArray = [];
-        let date;
-        forecastList.forEach(forecast => {
-            if (forecast.weather !== null && forecast.main !== null) {
-                date = new Date(forecast.dt * 1000);
-                forecastArray.push(forecast);
-            }
-        });
-        let day1 = forecastArray[0];
-        let day1Date = new Date(day1.dt*1000);
-        let day2 = forecastArray[1];
-        let day3 = forecastArray[2];
-        let day4 = forecastArray[3];
-        forecastDay1.textContent = `${day1Date.toLocaleDateString()}`;
-        forecastImage1.src = `https://openweathermap.org/img/wn/${day1.weather[0].icon}.png`;
-        forecastImage1.alt = day1.weather[0].description;
-        forecastTemp1.textContent = `Temperature: ${day1.main.temp} °C`;
-        }catch (error) {
+        getForecastData(forecastList);
+    } catch (error) {
         console.error(error);
     }
 }
+
+//define array
+let forecastArray = [];
+
+//parse array and loop through to output to DOM
+
+function getForecastData(forecastList) {
+    let date;
+    forecastList = forecastList.filter(forecast => {
+        let date = new Date(forecast.dt * 1000);
+        return date.getUTCHours() === 12;
+      });
+    forecastList.forEach(forecast => {
+        if (forecast.weather !== null && forecast.main !== null) {
+            date = new Date(forecast.dt * 1000);
+            forecastArray.push(forecast);
+        }
+        console.log(forecastArray);
+    });
+    for (let i = 0; i < 4; i++) {
+        let forecast = forecastArray[i];
+        let date = new Date(forecast.dt*1000);
+        let forecastDay = document.getElementById(`forecastDay${i+1}`);
+        let forecastImage = document.getElementById(`forecastImage${i+1}`);
+        let forecastTemp = document.getElementById(`forecastTemp${i+1}`);
+        let forecastWeather = document.getElementById(`forecastWeather${i+1}`);
+        let forecastWindSpeed = document.getElementById(`forecastWindSpeed${i+1}`);
+        forecastDay.textContent = `${date.toLocaleDateString()}`;
+        forecastImage.src = `https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`;
+        forecastImage.alt = forecast.weather[0].description;
+        forecastTemp.textContent = `Temperature: ${forecast.main.temp} °C`;
+        forecastWeather.textContent = forecast.weather[0].description;
+        forecastWindSpeed.textContent = `Wind Speed: ${forecast.wind.speed} m/s`;
+    }
+}
+
 
 /**
  * Takes location name and gets coordinates, then uses coordinates to get current weather
