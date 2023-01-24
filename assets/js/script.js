@@ -8,7 +8,7 @@ const windSpeed = document.querySelector(`#wind-speed`);
 const fourDayForecast = document.querySelector('#day-forecast');
 const errorMessage = document.querySelector("#error-message");
 const geolocateBtn = document.querySelector('#geolocate');
-const locationSubmitBtn = document.querySelector(`#location-submit`)
+
 
 
 /**
@@ -59,9 +59,9 @@ async function getLatLon(location) {
     }
 }
 
-//4 day forecast function
+//4 day forecast functions
 
-//fetch data
+//fetch forecast data
 async function get4DayForecast(lat, lon) {
     try {
         let forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
@@ -84,8 +84,8 @@ function getForecastData(forecastList) {
     forecastList = forecastList.filter(forecast => {
         let date = new Date(forecast.dt * 1000);
         return date.getUTCHours() === 12;
-      });
-    
+    });
+
     forecastList.forEach(forecast => {
         if (forecast.weather !== null && forecast.main !== null) {
             date = new Date(forecast.dt * 1000);
@@ -95,8 +95,10 @@ function getForecastData(forecastList) {
     });
     for (let i = 0; i < 4; i++) {
         let forecast = forecastArray[i];
-        let date = new Date(forecast.dt*1000);
-        let options = { weekday: 'short' };
+        let date = new Date(forecast.dt * 1000);
+        let options = {
+            weekday: 'short'
+        };
         let day = date.toLocaleDateString('en-US', options);
         let forecastDay = document.getElementById(`forecastDay${i+1}`);
         let forecastImage = document.getElementById(`forecastImage${i+1}`);
@@ -131,9 +133,7 @@ async function displayWeather(location) {
 
 document.querySelector('form').addEventListener('submit', event => {
     event.preventDefault();
-    if (event.target === locationSubmitBtn) {
-    displayWeather(locationInput.value);
-    }
+        displayWeather(locationInput.value);
 });
 
 //Function to listen for "Use my location button press and use browser geolocation api to run displayWeather"
