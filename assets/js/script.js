@@ -146,3 +146,9 @@ geolocateBtn.addEventListener('click', async () => {
         await get4DayForecast(lat, lon);
     });
 })
+
+//default location london loads on refresh
+
+document.addEventListener("DOMContentLoaded", () => {
+    displayWeather("London");
+}) ;
