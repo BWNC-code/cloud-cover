@@ -62,10 +62,28 @@ async function getLatLon(location) {
 
 async function get4DayForecast(lat, lon) {
     try {
-        let forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+        let forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
         let forecastData = await forecast.json();
         console.log(forecastData);
-    } catch (error) {
+        let forecastList = forecastData.list;
+        let forecastArray = [];
+        let date;
+        forecastList.forEach(forecast => {
+            if (forecast.weather !== null && forecast.main !== null) {
+                date = new Date(forecast.dt * 1000);
+                forecastArray.push(forecast);
+            }
+        });
+        let day1 = forecastArray[0];
+        let day1Date = new Date(day1.dt*1000);
+        let day2 = forecastArray[1];
+        let day3 = forecastArray[2];
+        let day4 = forecastArray[3];
+        forecastDay1.textContent = `${day1Date.toLocaleDateString()}`;
+        forecastImage1.src = `https://openweathermap.org/img/wn/${day1.weather[0].icon}.png`;
+        forecastImage1.alt = day1.weather[0].description;
+        forecastTemp1.textContent = `Temperature: ${day1.main.temp} °C`;
+        }catch (error) {
         console.error(error);
     }
 }
