@@ -9,6 +9,18 @@ const fourDayForecast = document.querySelector('#day-forecast');
 const errorMessage = document.querySelector("#error-message");
 const geolocateBtn = document.querySelector('#geolocate');
 
+//display error to user
+
+function displayError(error) {
+    let errorMessage = document.getElementById("error-message");
+    errorMessage.textContent = error;
+    errorMessage.classList.remove("hidden");
+}
+
+function hideError() {
+    let errorMessage = document.getElementById("error-message");
+    errorMessage.classList.add("hidden");
+}
 
 
 /**
@@ -19,6 +31,7 @@ const geolocateBtn = document.querySelector('#geolocate');
 
 async function getCurrentWeather(lat, lon) {
     try {
+        hideError();
         let currentWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
         let currentWeatherData = await currentWeather.json();
         locationName.textContent = `${currentWeatherData.name}, ${currentWeatherData.sys.country}`;
@@ -40,14 +53,17 @@ async function getCurrentWeather(lat, lon) {
 
 async function getLatLon(location) {
     try {
+        hideError();
         let latLon = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${apiKey}`);
         //Validate response
         if (latLon.status === 404 || latLon.status === 400) {
+            displayErrorMessage(`Error code: ${latLon.status}`)
             throw new Error(`Error code: ${latLon.status}`);
         }
         let latLonData = await latLon.json();
         //Validate json
         if (!latLonData || !latLonData[0].lat || !latLonData[0].lon) {
+            displayErrorMessage("Invalid location. Please enter a valid location.");
             throw new Error(`Invalid location: ${location}`);
         }
         return {
@@ -56,6 +72,7 @@ async function getLatLon(location) {
         };
     } catch (error) {
         console.error(error);
+        displayErrorMessage("There was an error with the API request. Please try again later.");
     }
 }
 
@@ -64,12 +81,14 @@ async function getLatLon(location) {
 //fetch forecast data
 async function get4DayForecast(lat, lon) {
     try {
+        hideError();
         let forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
         let forecastData = await forecast.json();
         let forecastList = forecastData.list;
         getForecastData(forecastList);
     } catch (error) {
         console.error(error);
+        displayErrorMessage("There was an error with the API request. Please try again later.");
     }
 }
 
