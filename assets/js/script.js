@@ -133,22 +133,39 @@ async function displayWeather(location) {
 
 document.querySelector('form').addEventListener('submit', event => {
     event.preventDefault();
-        displayWeather(locationInput.value);
+    displayWeather(locationInput.value);
 });
 
 //Function to listen for "Use my location button press and use browser geolocation api to run displayWeather"
 
 geolocateBtn.addEventListener('click', async () => {
-    navigator.geolocation.getCurrentPosition(async position => {
-        let lat = position.coords.latitude;
-        let lon = position.coords.longitude;
-        await getCurrentWeather(lat, lon);
-        await get4DayForecast(lat, lon);
+    let permission = await navigator.permissions.query({
+        name: `geolocation`
     });
-})
+    if (permission.state === 'granted') {
+        navigator.geolocation.getCurrentPosition(async position => {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            await getCurrentWeather(lat, lon);
+            await get4DayForecast(lat, lon);
+        });
+    } else if (permission.state === 'denied') {
+        alert('Location permission is needed to use this feature');
+    } else {
+        const newPermission = confirm("This button needs your location to function properly, do you want to share your location?");
+        if (newPermission) {
+            navigator.geolocation.getCurrentPosition(async position => {
+                let lat = position.coords.latitude;
+                let lon = position.coords.longitude;
+                await getCurrentWeather(lat, lon);
+                await get4DayForecast(lat, lon);
+            });
+        }
+    }
+});
 
 //default location london loads on refresh
 
 document.addEventListener("DOMContentLoaded", () => {
     displayWeather("London");
-}) ;
+});
