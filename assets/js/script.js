@@ -24,8 +24,8 @@ async function getCurrentWeather(lat, lon) {
         locationName.textContent = `${currentWeatherData.name}, ${currentWeatherData.sys.country}`;
         forecastImage.src = `https://openweathermap.org/img/wn/${currentWeatherData.weather[0].icon}.png`;
         forecastImage.alt = currentWeatherData.weather[0].description;
-        temperature.textContent = `Temperature: ${currentWeatherData.main.temp} °C`;
-        weatherDescription.textContent = `Weather: ${currentWeatherData.weather[0].description}`;
+        temperature.textContent = `Temperature: ${currentWeatherData.main.temp.toFixed()} °C`;
+        weatherDescription.textContent = `Weather: ${currentWeatherData.weather[0].description.replace(/\b\w/g, l => l.toUpperCase())}`;
         windSpeed.textContent = `Wind speed: ${currentWeatherData.wind.speed} m/s`;
         console.log(currentWeatherData);
     } catch (error) {
@@ -108,8 +108,8 @@ function getForecastData(forecastList) {
         forecastDay.textContent = `${day} ${date.toLocaleDateString()}`;
         forecastImage.src = `https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`;
         forecastImage.alt = forecast.weather[0].description;
-        forecastTemp.textContent = `Temperature: ${forecast.main.temp} °C`;
-        forecastWeather.textContent = forecast.weather[0].description;
+        forecastTemp.textContent = `Temperature: ${forecast.main.temp.toFixed()} °C`;
+        forecastWeather.textContent = forecast.weather[0].description.replace(/\b\w/g, l => l.toUpperCase());
         forecastWindSpeed.textContent = `Wind Speed: ${forecast.wind.speed} m/s`;
     }
 }
