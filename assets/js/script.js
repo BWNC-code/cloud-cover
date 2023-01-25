@@ -40,7 +40,6 @@ async function getCurrentWeather(lat, lon) {
         temperature.textContent = `Temperature: ${currentWeatherData.main.temp.toFixed()} °C`;
         weatherDescription.textContent = `Weather: ${currentWeatherData.weather[0].description.replace(/\b\w/g, l => l.toUpperCase())}`;
         windSpeed.textContent = `Wind speed: ${currentWeatherData.wind.speed} m/s`;
-        console.log(currentWeatherData);
     } catch (error) {
         console.error(error);
     }
@@ -110,7 +109,6 @@ function getForecastData(forecastList) {
             date = new Date(forecast.dt * 1000);
             forecastArray.push(forecast);
         }
-        console.log(forecastArray);
     });
     for (let i = 0; i < 4; i++) {
         let forecast = forecastArray[i];
