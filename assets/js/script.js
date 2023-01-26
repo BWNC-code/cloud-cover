@@ -157,6 +157,14 @@ document.querySelector('form').addEventListener('submit', event => {
     locationInput.value = "";
 });
 
+locationInput.addEventListener("keydown", event => {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        displayWeather(locationInput.value);
+        locationInput.value = "";
+    }
+});
+
 //Function to listen for "Use my location button press and use browser geolocation api to run displayWeather"
 
 geolocateBtn.addEventListener('click', async () => {
