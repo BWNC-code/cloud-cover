@@ -17,6 +17,8 @@ function displayError(error) {
     errorMessage.classList.remove("hidden");
 }
 
+//hide error for new attempts
+
 function hideError() {
     let errorMessage = document.getElementById("error-message");
     errorMessage.classList.add("hidden");
@@ -151,6 +153,7 @@ async function displayWeather(location) {
 document.querySelector('form').addEventListener('submit', event => {
     event.preventDefault();
     displayWeather(locationInput.value);
+    locationInput.value = "";
 });
 
 //Function to listen for "Use my location button press and use browser geolocation api to run displayWeather"
@@ -179,6 +182,7 @@ geolocateBtn.addEventListener('click', async () => {
             });
         }
     }
+    locationInput.value = "";
 });
 
 //default location london loads on refresh
