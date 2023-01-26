@@ -94,11 +94,12 @@ async function get4DayForecast(lat, lon) {
 }
 
 //define array
-let forecastArray = [];
+
 
 //parse array and loop through to output to DOM
 
 function getForecastData(forecastList) {
+    let forecastArray = [];
     let date;
     //only take 1 object per day at midday
     forecastList = forecastList.filter(forecast => {
