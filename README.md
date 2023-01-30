@@ -1,108 +1,134 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# MIND THE GAP
 
-Welcome BWNC-code,
+![amiresponsive](/assets/images/site-screenshots/am-i-responsive.png "Site responsiveness test")
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Table of contents
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+- [Introduction](#introduction)
+- [UI Decisions](#ui-decisions)
+- [Features](#features)
+- [Features left to implement](#features-left-to-implement)
+- [Technology Used](#technology-used)
+  - [HTML](#html)
+  - [CSS](#css)
+  - [Javascript](#javascript)
+- [Testing](#testing)
+- [Browser Compatibility Checks](#browser-compatibility-checks)
+  - [Microsoft Edge](#microsoft-edge)
+  - [Firefox Dev Edition](#firefox-developer-edition)
+  - [Opera](#opera)
+- [Manual Feature Testing](#manual-feature-testing)
+- [Bugs](#bugs)
+- [Deployment](#deployment)
+  - [Cloning and Forking](#cloning-and-forking)
+  - [Local Deployment](#local-deployment)
+  - [Remote Deployment](#remote-deployment)
+- [Credits and Acknowledgements](#credits-and-acknowledgements)
 
-## Gitpod Reminders
+[Table of contents generated with markdown-toc](http://ecotrust-canada.github.io/markdown-toc/)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Introduction
 
-`python3 -m http.server`
+![Home page](/assets/images/site-screenshots/home-page.png "Site home page")
 
-A blue button should appear to click: _Make Public_,
+## UI Decisions
 
-Another blue button should appear to click: _Open Browser_.
+## Features
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+This section explains each part of the project and the value it brings to acheiving the project goal.
 
-A blue button should appear to click: _Make Public_,
+## Features left to implement
 
-Another blue button should appear to click: _Open Browser_.
+## Technology Used
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### HTML
 
-To log into the Heroku toolbelt CLI:
+### CSS
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Javascript
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Testing
 
-------
+- HTML  
+  No errors were returned when passing through the official [W3C validator]()
 
-## Release History
+- CSS
+  - No errors were found when passing through the official [(Jigsaw) validator]()
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- Accessibility
+  - I used dev tools lighthouse to confirm performance, readability and best practices for the site
+  ![Lighthouse](/assets/images/site-screenshots/lighthouse.png)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### Responsiveness / Device Testing
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+The site was tested on the following devices;
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- HP Elitebook 840
+- AOC Q27V4EA - 27 Inch QHD Monitor
+- Apple iPhone 13 Pro max
+- Google Chrome Developer Tools - simulator for all different device options as well as using the adjustable sizing options
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+The website functioned as expected in all of these devices.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Browser Compatibility Checks
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Microsoft Edge
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+The latest deployment of the site was loaded onto Microsoft Edge (a Chromium browser) with no visible issues
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![Edge](/assets/images/site-screenshots/edge.png "Microsoft Edge")
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Firefox Developer Edition
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+The latest deployment of the site was loaded onto Firefox developer edition with no visible issues
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+![Firefox Developer Edition](/assets/images/site-screenshots/firefox-dev.png)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Opera
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+The latest deployment of the site was loaded onto Opera with no visible issues
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+![Opera](/assets/images/site-screenshots/opera.png)
 
-------
+## Manual Feature Testing
 
-## FAQ about the uptime script
+## Bugs
 
-**Why have you added this script?**
+No unsolved bugs
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Deployment
 
-**How will this affect me?**
+This section describes the process of obtaining a copy of this websites files in a new repository, running an environment to work on the site, and deploying to a live platform
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### Cloning and Forking
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+-At the top of the repository page, select fork and choose a name for the new repository to create a copy
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+-Alternatively select code above the file viewer and either use the link to pull a copy of the code or download the code as a zip file
 
-**So….?**
+### Local Deployment
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- Navigate to [Gitpod](https://gitpod.io/)
+- Login using a Github account
+- Download and install the Gitpod browser extension
+- Return to the repository
+- Select the green Gitpod button above the file viewer
 
-**Can I opt out?**
+### Remote Deployment
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- The site was deployed to GitHub pages. The steps to deploy are as follows:
+  - In the GitHub repository, navigate to the Settings tab
+  - Select the pages link in the sidebar
+  - Under "Build and deployment", under "Branch", use the None or Branch drop-down menu and select a publishing source.
+  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+The live link can be found [here](https://bwnc-code.github.io/mind-the-gap/index.html)
 
-**Anything more?**
+## Credits and Acknowledgements
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+Animated navigation menu - Tutorial found on [W3 Schools website](https://www.w3schools.com/howto/howto_js_sidenav.asp)
 
----
+The images used on the home page are from Vecteezy.com and Freevector.com
+Images used have been given source links where they appear
 
-Happy coding!
+The icons in the navigation bar and footer were taken from [Font Awesome](https://fontawesome.com/)
