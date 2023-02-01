@@ -57,7 +57,7 @@ async function getLatLon(location) {
         hideError();
         let latLon = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${apiKey}`);
         //Validate response
-        if (latLon.status === 404 || latLon.status === 400) {
+        if (latLon.status !== 200) {
             displayErrorMessage(`Error code: ${latLon.status}`)
             throw new Error(`Error code: ${latLon.status}`);
         }
