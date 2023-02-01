@@ -1,17 +1,21 @@
 const apiKey = 'd5ef31a7c6df783ea28c65895fc0c6d9';
+
+//Define DOM elements used in functions
 const locationInput = document.querySelector('#location');
 const locationName = document.querySelector('#location-name');
 const forecastImage = document.querySelector('#forecast-image');
 const temperature = document.querySelector(`#temperature`);
 const weatherDescription = document.querySelector(`#weather-description`);
 const windSpeed = document.querySelector(`#wind-speed`);
+const sunRise = document.querySelector(`#sun-rise`);
+const sunSet = document.querySelector(`#sun-set`);
 const fourDayForecast = document.querySelector('#day-forecast');
 const errorMessage = document.querySelector("#error-message");
 const geolocateBtn = document.querySelector('#geolocate');
 
 //display error to user
 
-function displayError(error) {
+function displayErrorMessage(error) {
     let errorMessage = document.getElementById("error-message");
     errorMessage.textContent = error;
     errorMessage.classList.remove("hidden");
@@ -42,6 +46,8 @@ async function getCurrentWeather(lat, lon) {
         temperature.textContent = `Temperature: ${currentWeatherData.main.temp.toFixed()} °C`;
         weatherDescription.textContent = `Weather: ${currentWeatherData.weather[0].description.replace(/\b\w/g, l => l.toUpperCase())}`;
         windSpeed.textContent = `Wind speed: ${currentWeatherData.wind.speed} m/s`;
+        sunRise.textContent = `Sunrise: ${new Date(currentWeatherData.sys.sunrise * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+        sunSet.textContent = `Sunset: ${new Date(currentWeatherData.sys.sunset * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
     } catch (error) {
         console.error(error);
     }
