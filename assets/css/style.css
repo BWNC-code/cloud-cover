@@ -8,6 +8,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     font-family: 'Roboto Condensed', sans-serif;
     height: 100vh;
 }
@@ -115,15 +116,17 @@ h1 {
 
 #four-day-forecast {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .forecast-block {
     background-color: rgba(255, 255, 255, 0.3);
     padding: 10px;
     border-radius: 10px;
-    flex-basis: 20%;
+    flex-basis: auto;
     text-align: center;
+    margin: 10px;
 }
 
 #forecastDay1, #forecastDay2, #forecastDay3, #forecastDay4 {
