@@ -113,6 +113,11 @@ h1 {
     width: 50%;
 }
 
+#sunrise-icon {
+    display: none;
+    width: 50px;
+}
+
 #four-day-forecast {
     display: flex;
     justify-content: center;
@@ -162,17 +167,21 @@ h1 {
         font-size: 1.2em;
     }
 
+    #sunrise-icon {
+        display: inline;
+    }
+
     #location-name {
         margin: 1em auto;
     }
 
     .column1,
     .column2 {
-        margin: auto 10px;
+        margin: 0 10px;
     }
 
     .column2 {
-        padding-top: 50px;
+        padding-bottom: 1.2em;
     }
 
     #four-day-forecast {
