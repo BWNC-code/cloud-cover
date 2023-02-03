@@ -195,13 +195,17 @@ h1 {
         border-radius: 10px;
         flex-basis: auto;
         text-align: center;
-        /* margin: 10px;
-        width: fit-content;
-        max-width: 20%; */
         margin: 20px;
         width: 40%;
         font-size: 1.2em;
     }
+}
+
+@media (min-width: 800px) {
+    #four-day-forecast {
+        padding: 0 20%;
+    }
+
 }
 
 @media (min-width: 1200px) {
@@ -213,10 +217,14 @@ h1 {
         margin: 0 10px;
     }
 
+    #four-day-forecast {
+        padding: 0;
+    }
+
     .forecast-block {
         margin: 10px;
-        width: fit-content;
         width: -moz-fit-content;
+        width: fit-content;
         max-width: 20%;
     }
 }
