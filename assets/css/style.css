@@ -36,7 +36,6 @@ h1 {
 .search-bar input {
     border: 1px solid grey;
     border-radius: 5px;
-    height: 30px;
     width: 100%;
     max-width: 400px;
     padding: 2px 23px 2px 30px;
@@ -133,6 +132,70 @@ h1 {
     font-weight: bold;
 }
 
+@media (min-width: 530px) {
+
+    #four-day-forecast {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .forecast-block {
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 10px;
+        border-radius: 10px;
+        flex-basis: auto;
+        text-align: center;
+        margin: 10px;
+        width: 40%;
+    }
+    
+}
+
+@media (min-width: 700px) {
+    .current-weather {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+    }
+
+    #location-name {
+        margin: 1em auto;
+    }
+
+    .column1,.column2 {
+        margin: auto 10px;
+    }
+
+    .column2 {
+        padding-top: 50px;
+    }
+
+    #four-day-forecast {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .forecast-block {
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 10px;
+        border-radius: 10px;
+        flex-basis: auto;
+        text-align: center;
+        margin: 10px;
+        width: fit-content;
+        max-width: 20%;
+    }
+}
+
+@media (min-width: 1000px) {
+    body {
+        font-size: 1.3em;
+    }
+    
+    .search-buttons button {
+        margin: 0 10px;
+    }
+}
 /* Error message */
 
 #error-message {

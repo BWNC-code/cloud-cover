@@ -23,15 +23,23 @@
     </div>
     </form>
     <div id="error-message" class="hidden">There was an error with your request. Please try again later.</div>
+    
+    <!-- Main weather forecast block -->
     <div class="current-weather">
       <div id="location-name"></div>
-      <img id="forecast-image" src="" alt="Weather Forecast">
-      <div id="temperature"></div>
-      <div id="weather-description"></div>
-      <div id="wind-speed"></div>
-      <div id="sun-rise"></div>
-      <div id="sun-set"></div>
+      <div class="column1">
+        <img id="forecast-image" src="" alt="Weather Forecast">
+        <div id="temperature"></div>
+        <div id="weather-description"></div>
+        <div id="wind-speed"></div>
+      </div>
+      <div class="column2">
+        <div id="sun-rise"></div>
+        <div id="sun-set"></div>
+      </div>
+      
     </div>
+    <!-- 4 day forecast blocks -->
     <div id="four-day-forecast">
       <div class="forecast-block">
         <div id="forecastDay1"></div>
