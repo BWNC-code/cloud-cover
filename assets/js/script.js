@@ -9,8 +9,6 @@ const weatherDescription = document.querySelector(`#weather-description`);
 const windSpeed = document.querySelector(`#wind-speed`);
 const sunRise = document.querySelector(`#sun-rise`);
 const sunSet = document.querySelector(`#sun-set`);
-const fourDayForecast = document.querySelector('#day-forecast');
-const errorMessage = document.querySelector("#error-message");
 const geolocateBtn = document.querySelector('#geolocate');
 
 //display error to user
@@ -64,7 +62,7 @@ async function getLatLon(location) {
         let latLon = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${apiKey}`);
         //Validate response
         if (latLon.status !== 200) {
-            displayErrorMessage(`Error code: ${latLon.status}`)
+            displayErrorMessage(`Error code: ${latLon.status}`);
             throw new Error(`Error code: ${latLon.status}`);
         }
         let latLonData = await latLon.json();

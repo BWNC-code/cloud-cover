@@ -126,9 +126,4 @@ The live link can be found [here](https://bwnc-code.github.io/mind-the-gap/index
 
 ## Credits and Acknowledgements
 
-Animated navigation menu - Tutorial found on [W3 Schools website](https://www.w3schools.com/howto/howto_js_sidenav.asp)
-
-The images used on the home page are from Vecteezy.com and Freevector.com
-Images used have been given source links where they appear
-
-The icons in the navigation bar and footer were taken from [Font Awesome](https://fontawesome.com/)
+[Sunrise icon created by 7AM - Flaticon](https://www.flaticon.com/free-icons/sun>)
