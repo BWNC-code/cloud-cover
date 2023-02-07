@@ -44,8 +44,11 @@ async function getCurrentWeather(lat, lon) {
         temperature.textContent = `Temperature: ${currentWeatherData.main.temp.toFixed()} °C`;
         weatherDescription.textContent = `Weather: ${currentWeatherData.weather[0].description.replace(/\b\w/g, l => l.toUpperCase())}`;
         windSpeed.textContent = `Wind speed: ${currentWeatherData.wind.speed} m/s`;
-        sunRise.textContent = `Sunrise: ${new Date(currentWeatherData.sys.sunrise * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-        sunSet.textContent = `Sunset: ${new Date(currentWeatherData.sys.sunset * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+        let timeZone = currentWeatherData.timezone;
+        let sunriseTimestamp = currentWeatherData.sys.sunrise + timeZone;
+        let sunsetTimestamp = currentWeatherData.sys.sunset + timeZone;
+        sunRise.textContent = `Sunrise: ${new Date(sunriseTimestamp * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+        sunSet.textContent = `Sunset: ${new Date(sunsetTimestamp * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
     } catch (error) {
         console.error(error);
     }
