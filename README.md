@@ -36,6 +36,9 @@ The API has a limit of 60 requests per minute, which could be a limiting factor 
 
 ## UI Decisions
 
+I chose a bright, cloudy aesthetic for the website to improve readability, maintain simplicity, and add an overall pleasant aesthetic. I used simple icons to ensure fast loading times and provide clear meaning to the user. Additionally, I added spacing and backgrounds to all elements to further enhance readability and provide visual cues throughout the website. Furthermore, I chose a font that was easy to read and provided a good contrast with the background, which was instrumental in improving the user experience.
+Spacing and sizing was styled with a mobile-first approach, using media queries to improve appearance and readability when using larger screens.
+
 ## Features
 
 This section explains each part of the project and the value it brings to acheiving the project goal.
@@ -53,7 +56,7 @@ This section explains each part of the project and the value it brings to acheiv
 ## Testing
 
 - HTML  
-  No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbwnc-code.github.io%2Fcloud-cover%2F)
+  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbwnc-code.github.io%2Fcloud-cover%2F)
 
 - CSS
   - No errors were found when passing through the official [W3C validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fbwnc-code.github.io%2Fcloud-cover%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
@@ -64,8 +67,8 @@ This section explains each part of the project and the value it brings to acheiv
   ![JSHint](/assets/images/site-screenshots/jshint.png)
 
 - Accessibility
-  - I used dev tools lighthouse to confirm performance, readability and best practices for the site
-  ![Lighthouse](/assets/images/site-screenshots/lighthouse.png)
+  - I used dev tools lighthouse to confirm performance, readability and best practices for the site  
+    ![Lighthouse](/assets/images/site-screenshots/lighthouse.png)
 
 ### Responsiveness / Device Testing
 
@@ -99,6 +102,66 @@ The latest deployment of the site was loaded onto Opera with no visible issues
 ![Opera](/assets/images/site-screenshots/opera.png)
 
 ## Manual Feature Testing
+
+### Location search
+
+The primary feature to test is the search bar and button which should allow any City, Country term to be searched and give accurate weather data. To do so I picked 10 random cities and checked the results of the search against another well established weather site.
+
+#### Tokyo, Japan (Central district of Tokyo)
+
+![Tokyo-CC](/assets/images/site-screenshots/tests/tokyo.png)
+![Tokyo-TWC](/assets/images/site-screenshots/tests/tokyo-met.png)
+
+#### Delhi, India
+
+![Delhi-CC](/assets/images/site-screenshots/tests/delhi.png)
+![Delhi-TWC](/assets/images/site-screenshots/tests/delhi-met.png)
+
+#### Shanghai, China
+
+![Shanghai-CC](/assets/images/site-screenshots/tests/shanghai.png)
+![Shanghai-TWC](/assets/images/site-screenshots/tests/shanghai-met.png)
+
+#### São Paulo, Brazil (Central state of Sao Paulo)
+
+![São Paulo-CC](/assets/images/site-screenshots/tests/sao-paulo.png)
+![São Paulo-TWC](/assets/images/site-screenshots/tests/sao-paulo-met.png)
+
+#### Mumbai, India (Division Mumbai is centered in)
+
+![Mumbai-CC](/assets/images/site-screenshots/tests/mumbai.png)
+![Mumbai-TWC](/assets/images/site-screenshots/tests/mumbai-met.png)
+
+#### Mexico City, Mexico
+
+![Mexico City-CC](/assets/images/site-screenshots/tests/mexico-city.png)
+![Mexico City-TWC](/assets/images/site-screenshots/tests/mexico-city-met.png)
+
+#### Beijing, China
+
+![Beijing-CC](/assets/images/site-screenshots/tests/beijing.png)
+![Beijing-TWC](/assets/images/site-screenshots/tests/beijing-met.png)
+
+#### Istanbul, Turkey (Central area of Istanbul)
+
+![Istanbul-CC](/assets/images/site-screenshots/tests/istanbul.png)
+![Istanbul-TWC](/assets/images/site-screenshots/tests/istanbul-met.png)
+
+#### Moscow, Russia
+
+![Moscow-CC](/assets/images/site-screenshots/tests/moscow.png)
+![Moscow-TWC](/assets/images/site-screenshots/tests/moscow-met.png)
+
+#### New York City, United States
+
+![New York City-CC](/assets/images/site-screenshots/tests/new-york.png)
+![New York City-TWC](/assets/images/site-screenshots/tests/new-york-met.png)
+
+The results vary slightly as the MET office website give high/low temperatures for each day, however the averages are the same or within 1-2 degrees. Discrepancies can be attributed to each data source coming from different meteorological offices.
+
+### Use my location
+
+I have successfully used browser geolocation to search for weather data where permission is given. A message is also sent to the user to ensure permission is given when this function is requested
 
 ## Bugs
 
