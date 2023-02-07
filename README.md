@@ -31,6 +31,9 @@
 
 ![Home page](/assets/images/site-screenshots/home-page.png "Site home page")
 
+Cloud Cover provides an easy to use and comprehensive forecast of the weather. By entering a location (City, Country), users can access the current forecast and a four day forecast. The current forecast includes details such as temperature, humidity, wind speed and direction, chance of rain, and more. The four day forecast shows the main weather conditions expected during each day. Cloud Cover utilizes the power of JavaScript and OpenWeatherMap API data to deliver up-to-date and accurate forecasts.
+The API has a limit of 60 requests per minute, which could be a limiting factor if the site had a large number of users.
+
 ## UI Decisions
 
 ## Features
@@ -50,10 +53,15 @@ This section explains each part of the project and the value it brings to acheiv
 ## Testing
 
 - HTML  
-  No errors were returned when passing through the official [W3C validator]()
+  No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fbwnc-code.github.io%2Fcloud-cover%2F)
 
 - CSS
-  - No errors were found when passing through the official [(Jigsaw) validator]()
+  - No errors were found when passing through the official [W3C validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fbwnc-code.github.io%2Fcloud-cover%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+- JavaScript
+  - No errors were found when passing through JSHint
+
+  ![JSHint](/assets/images/site-screenshots/jshint.png)
 
 - Accessibility
   - I used dev tools lighthouse to confirm performance, readability and best practices for the site
@@ -94,7 +102,7 @@ The latest deployment of the site was loaded onto Opera with no visible issues
 
 ## Bugs
 
-No unsolved bugs
+Because openweathermap uses data from local weather stations, the location displayed when searching some areas will not match the exact name that was searched. It will however be a location very close, or a particular district or area within the location which was searched.
 
 ## Deployment
 
@@ -125,5 +133,9 @@ This section describes the process of obtaining a copy of this websites files in
 The live link can be found [here](https://bwnc-code.github.io/mind-the-gap/index.html)
 
 ## Credits and Acknowledgements
+
+[All weather data and forecast icons are provided by OpenWeatherMap](https://openweathermap.org/)
+
+[Background Image by starline](https://www.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_8562848.htm#query=weather%20background&position=3&from_view=keyword")
 
 [Sunrise icon created by 7AM - Flaticon](https://www.flaticon.com/free-icons/sun>)
