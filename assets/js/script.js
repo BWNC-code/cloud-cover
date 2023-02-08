@@ -87,7 +87,12 @@ async function getLatLon(location) {
 
 //4 day forecast functions
 
-//fetch forecast data
+/**
+ * 
+ * @param {*} latitude 
+ * @param {*} longitude
+ * @returns forecast data in json format for 10 days 
+ */
 async function get4DayForecast(lat, lon) {
     try {
         hideError();
@@ -100,9 +105,6 @@ async function get4DayForecast(lat, lon) {
         displayErrorMessage("There was an error with the API request. Please try again later.");
     }
 }
-
-//define array
-
 
 //parse array and loop through to output to DOM
 
@@ -144,7 +146,8 @@ function getForecastData(forecastList) {
 
 
 /**
- * Takes location name and gets coordinates, then uses coordinates to get current weather
+ * @param location ("city, country")
+ * @returns display current and forecast weather to user
  */
 async function displayWeather(location) {
     try {
