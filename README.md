@@ -53,6 +53,26 @@ The use my location button allows the user to have the site take geolocation dat
 
 ![Search Bar](/assets/images/site-screenshots/search-bar.png "Search bar and buttons")
 
+### Error message
+
+If a function encounters an error during normal site operation, the user will be notified of the issue. This could be due to an API request, an invalid location, or something else.
+
+![Error Message](/assets/images/site-screenshots/error-message.png "Error message displayed to user")
+
+### Current weather block
+
+The largest block of information on display shows temperature, weather condition, wind speed and sunrise/sunset times. It also contains an icon for the weather condition and the location name.
+
+![Current Weather Block](assets/images/site-screenshots/current-weather1.png "Current weather information block")
+![Current Weather Block (large screens)](assets/images/site-screenshots/current-weather2.png "Current weather information block on large screens")
+
+### Four day forecast
+
+Below the current weather information block, there are 4 forecast blocks showing data for the subsequent days, these blocks are more concise only showing date, weather condition, average temperature and wind speed.
+
+![Forecast Weather Blocks](assets/images/site-screenshots/4-day1.png "Forecast weather information blocks")
+![Forecast Weather Blocks (large screens)](assets/images/site-screenshots/4-day2.png "Forecast weather information blocks on large screens")
+
 ## Features left to implement
 
 More data could be displayed to the user, such as precipitation and moon phase, as well as other environmental information, like air quality and UV index, to give users a better understanding of the conditions in their area. Options like unit selection (e.g. Celsius or Fahrenheit) could be added to improve the user experience and make the data more accessible for users with different preferences.
