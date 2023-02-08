@@ -216,3 +216,7 @@ The live link can be found [here](https://bwnc-code.github.io/mind-the-gap/index
 [Background Image by starline](https://www.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_8562848.htm#query=weather%20background&position=3&from_view=keyword")
 
 [Sunrise icon created by 7AM - Flaticon](https://www.flaticon.com/free-icons/sun>)
+
+[Favicon generated from the Twemoji cloud emoji](https://twemoji.twitter.com/)
+
+[Favicons generated using Favicon.io generator](https://favicon.io/emoji-favicons/cloud)
