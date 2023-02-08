@@ -51,6 +51,7 @@ async function getCurrentWeather(lat, lon) {
         sunSet.textContent = `Sunset: ${new Date(sunsetTimestamp * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
     } catch (error) {
         console.error(error);
+        displayErrorMessage("There was an error with the API request. Please try again later.")
     }
 }
 
@@ -80,7 +81,7 @@ async function getLatLon(location) {
         };
     } catch (error) {
         console.error(error);
-        displayErrorMessage("There was an error with the API request. Please try again later.");
+        displayErrorMessage("Invalid location. Please enter a valid location.");
     }
 }
 
