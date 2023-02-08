@@ -4,26 +4,28 @@
 
 ## Table of contents
 
-- [Introduction](#introduction)
-- [UI Decisions](#ui-decisions)
-- [Features](#features)
-- [Features left to implement](#features-left-to-implement)
-- [Technology Used](#technology-used)
-  - [HTML](#html)
-  - [CSS](#css)
-  - [Javascript](#javascript)
-- [Testing](#testing)
-- [Browser Compatibility Checks](#browser-compatibility-checks)
-  - [Microsoft Edge](#microsoft-edge)
-  - [Firefox Dev Edition](#firefox-developer-edition)
-  - [Opera](#opera)
-- [Manual Feature Testing](#manual-feature-testing)
-- [Bugs](#bugs)
-- [Deployment](#deployment)
-  - [Cloning and Forking](#cloning-and-forking)
-  - [Local Deployment](#local-deployment)
-  - [Remote Deployment](#remote-deployment)
-- [Credits and Acknowledgements](#credits-and-acknowledgements)
+- [CLOUD COVER](#cloud-cover)
+  - [Table of contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [UI Decisions](#ui-decisions)
+  - [Features](#features)
+    - [Search bar](#search-bar)
+  - [Features left to implement](#features-left-to-implement)
+  - [Technology Used](#technology-used)
+    - [HTML](#html)
+    - [CSS](#css)
+    - [Javascript](#javascript)
+  - [Testing](#testing)
+  - [Browser Compatibility Checks](#browser-compatibility-checks)
+  - [Manual Feature Testing](#manual-feature-testing)
+    - [Location search](#location-search)
+    - [Use my location](#use-my-location)
+  - [Bugs](#bugs)
+  - [Deployment](#deployment)
+    - [Cloning and Forking](#cloning-and-forking)
+    - [Local Deployment](#local-deployment)
+    - [Remote Deployment](#remote-deployment)
+  - [Credits and Acknowledgements](#credits-and-acknowledgements)
 
 [Table of contents generated with markdown-toc](http://ecotrust-canada.github.io/markdown-toc/)
 
@@ -43,7 +45,19 @@ Spacing and sizing was styled with a mobile-first approach, using media queries 
 
 This section explains each part of the project and the value it brings to acheiving the project goal.
 
+### Search bar
+
+The search bar displays placeholder text on page load, indicating the preferred search format. Users can submit their input by clicking the search button or pressing the enter key. After submitting a search, the search bar is cleared, ready for the next input.
+
+The use my location button allows the user to have the site take geolocation data from their chosen browser and display weather data for their exact location. This requires the user give the site permission to access this data
+
+![Search Bar](/assets/images/site-screenshots/search-bar.png "Search bar and buttons")
+
 ## Features left to implement
+
+More data could be displayed to the user, such as precipitation and moon phase, as well as other environmental information, like air quality and UV index, to give users a better understanding of the conditions in their area. Options like unit selection (e.g. Celsius or Fahrenheit) could be added to improve the user experience and make the data more accessible for users with different preferences.
+
+Additionally, a backup data source using another weather API could be implemented to ensure the site remains functional if the current source is unavailable. This would require additional code to adapt the new dataset, as it may not provide the same data types, and ensure that the data is presented in an understandable, user-friendly way. Furthermore, an alert system could be set up to notify users of any changes in the weather conditions, such as severe weather alerts, so that users can stay informed and take appropriate action.
 
 ## Technology Used
 
@@ -70,7 +84,7 @@ This section explains each part of the project and the value it brings to acheiv
   - I used dev tools lighthouse to confirm performance, readability and best practices for the site  
     ![Lighthouse](/assets/images/site-screenshots/lighthouse.png)
 
-### Responsiveness / Device Testing
+### Responsiveness/Device Testing
 
 The site was tested on the following devices;
 
@@ -93,13 +107,13 @@ The latest deployment of the site was loaded onto Microsoft Edge (a Chromium bro
 
 The latest deployment of the site was loaded onto Firefox developer edition with no visible issues
 
-![Firefox Developer Edition](/assets/images/site-screenshots/firefox-dev.png)
+![Firefox Developer Edition](/assets/images/site-screenshots/firefox-dev.png "Firefox developer edition")
 
 ### Opera
 
 The latest deployment of the site was loaded onto Opera with no visible issues
 
-![Opera](/assets/images/site-screenshots/opera.png)
+![Opera](/assets/images/site-screenshots/opera.png "Opera")
 
 ## Manual Feature Testing
 
@@ -109,53 +123,53 @@ The primary feature to test is the search bar and button which should allow any 
 
 #### Tokyo, Japan (Central district of Tokyo)
 
-![Tokyo-CC](/assets/images/site-screenshots/tests/tokyo.png)
-![Tokyo-TWC](/assets/images/site-screenshots/tests/tokyo-met.png)
+![Tokyo-CC](/assets/images/site-screenshots/tests/tokyo.png "Tokyo cloud cover search")
+![Tokyo-TWC](/assets/images/site-screenshots/tests/tokyo-met.png "Tokyo met office search")
 
 #### Delhi, India
 
-![Delhi-CC](/assets/images/site-screenshots/tests/delhi.png)
-![Delhi-TWC](/assets/images/site-screenshots/tests/delhi-met.png)
+![Delhi-CC](/assets/images/site-screenshots/tests/delhi.png "Delhi cloud cover search")
+![Delhi-TWC](/assets/images/site-screenshots/tests/delhi-met.png "Delhi met office search")
 
 #### Shanghai, China
 
-![Shanghai-CC](/assets/images/site-screenshots/tests/shanghai.png)
-![Shanghai-TWC](/assets/images/site-screenshots/tests/shanghai-met.png)
+![Shanghai-CC](/assets/images/site-screenshots/tests/shanghai.png "Shanghai cloud cover search")
+![Shanghai-TWC](/assets/images/site-screenshots/tests/shanghai-met.png "Shanghai met office search")
 
 #### São Paulo, Brazil (Central state of Sao Paulo)
 
-![São Paulo-CC](/assets/images/site-screenshots/tests/sao-paulo.png)
-![São Paulo-TWC](/assets/images/site-screenshots/tests/sao-paulo-met.png)
+![São Paulo-CC](/assets/images/site-screenshots/tests/sao-paulo.png "Sao Paulo cloud cover search")
+![São Paulo-TWC](/assets/images/site-screenshots/tests/sao-paulo-met.png "Sao Paulo met office search")
 
 #### Mumbai, India (Division Mumbai is centered in)
 
-![Mumbai-CC](/assets/images/site-screenshots/tests/mumbai.png)
-![Mumbai-TWC](/assets/images/site-screenshots/tests/mumbai-met.png)
+![Mumbai-CC](/assets/images/site-screenshots/tests/mumbai.png "Mumbai cloud cover search")
+![Mumbai-TWC](/assets/images/site-screenshots/tests/mumbai-met.png "Mumbai met office search")
 
 #### Mexico City, Mexico
 
-![Mexico City-CC](/assets/images/site-screenshots/tests/mexico-city.png)
-![Mexico City-TWC](/assets/images/site-screenshots/tests/mexico-city-met.png)
+![Mexico City-CC](/assets/images/site-screenshots/tests/mexico-city.png "Mexico city cloud cover search")
+![Mexico City-TWC](/assets/images/site-screenshots/tests/mexico-city-met.png "Mexico City met office search")
 
 #### Beijing, China
 
-![Beijing-CC](/assets/images/site-screenshots/tests/beijing.png)
-![Beijing-TWC](/assets/images/site-screenshots/tests/beijing-met.png)
+![Beijing-CC](/assets/images/site-screenshots/tests/beijing.png "Beijing cloud cover search")
+![Beijing-TWC](/assets/images/site-screenshots/tests/beijing-met.png "Beijing met office search")
 
 #### Istanbul, Turkey (Central area of Istanbul)
 
-![Istanbul-CC](/assets/images/site-screenshots/tests/istanbul.png)
-![Istanbul-TWC](/assets/images/site-screenshots/tests/istanbul-met.png)
+![Istanbul-CC](/assets/images/site-screenshots/tests/istanbul.png "Istanbul cloud cover search")
+![Istanbul-TWC](/assets/images/site-screenshots/tests/istanbul-met.png "Istanbul met office search")
 
 #### Moscow, Russia
 
-![Moscow-CC](/assets/images/site-screenshots/tests/moscow.png)
-![Moscow-TWC](/assets/images/site-screenshots/tests/moscow-met.png)
+![Moscow-CC](/assets/images/site-screenshots/tests/moscow.png "Moscow cloud cover search")
+![Moscow-TWC](/assets/images/site-screenshots/tests/moscow-met.png "Moscow met office search")
 
 #### New York City, United States
 
-![New York City-CC](/assets/images/site-screenshots/tests/new-york.png)
-![New York City-TWC](/assets/images/site-screenshots/tests/new-york-met.png)
+![New York City-CC](/assets/images/site-screenshots/tests/new-york.png "New York cloud cover search")
+![New York City-TWC](/assets/images/site-screenshots/tests/new-york-met.png "New York met office search")
 
 The results vary slightly as the MET office website give high/low temperatures for each day, however the averages are the same or within 1-2 degrees. Discrepancies can be attributed to each data source coming from different meteorological offices.
 
